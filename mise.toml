@@ -1,0 +1,12 @@
+[tools]
+go = "1.27.1"
+
+[tasks]
+migrate = "mise run migrate-up"
+migrate-up = 'goose -dir backend/migrations postgres "$DB_URL" up'
+migrate-down = 'goose -dir backend/migrations postgres "$DB_URL" down'
+migrate-status = 'goose -dir backend/migrations postgres "$DB_URL" status'
+migrate-create = 'goose -dir backend/migrations postgres "$DB_URL" create "$NAME" sql'
+dev = "cd backend && go run ."
+build = "cd backend && go build ./..."
+vet = "cd backend && go vet ./..."
